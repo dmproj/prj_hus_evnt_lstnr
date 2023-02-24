@@ -12,7 +12,7 @@ button.addEventListener('click', () => {
   clearTimeout(timeoutId);
 
   // Set a new timeout to delay the fetch request by 1 second
-  timeoutId = setTimeout(() => {
+  timeoutId = setTimeout(() => { 
     // Get the values of the input fields
     const value1 = input1.value;
     const value2 = input2.value;
