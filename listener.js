@@ -13,17 +13,17 @@ input1.addEventListener('input', () => {
   }, 1000); // Delay of 1 second (1000 milliseconds)
 });
 
-input2.addEventListener('input', () => {
-  clearTimeout(timeoutId);
-  timeoutId = setTimeout(() => {
-    sendFetchRequest();
-  }, 1000); // Delay of 1 second (1000 milliseconds)
-});
+// input2.addEventListener('input', () => {
+//   clearTimeout(timeoutId);
+//   timeoutId = setTimeout(() => {
+//     sendFetchRequest();
+//   }, 1000); // Delay of 1 second (1000 milliseconds)
+// });
 
 // Function to send fetch request with input values
 function sendFetchRequest() {
   const value1 = input1.value;
-  const value2 = input2.value;
+  // const value2 = input2.value;
   
   // Send fetch request with input values
   fetch(`https://swapi.dev/api/people/?search=${value1}`, {
