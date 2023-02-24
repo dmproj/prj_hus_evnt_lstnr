@@ -4,7 +4,7 @@ const input1 = document.querySelector('#input1');
 const input2 = document.querySelector('#input2');
 
 // Initialize a variable to hold the timeout ID
-let timeoutId; 
+let timeoutId;
 
 // Add event listener to button element
 button.addEventListener('click', () => {
@@ -12,18 +12,18 @@ button.addEventListener('click', () => {
   clearTimeout(timeoutId);
 
   // Set a new timeout to delay the fetch request by 1 second
-  timeoutId = setTimeout(() => { 
-    // Get the values of the input fields
-    const value1 = input1.value;
-    const value2 = input2.value;
-
-    // Send fetch request with input values
-    fetch('http://example.com', {
-      method: 'POST',
-      body: JSON.stringify({ value1, value2 })
+  timeoutId = setTimeout(() => {
+    // Send GET request to SWAPI
+    fetch('https://swapi.dev/api/people/', {
+      method: 'GET'
     })
-    .then(response => response.json())
-    .then(data => console.log(data))
+    .then(response => response.text()) // convert response to text
+    .then(data => {
+      // Display the response data as HTML
+      console.log(data)
+      // const output = document.querySelector('#output');
+      // output.innerHTML = data;
+    })
     .catch(error => console.error(error));
   }, 1000); // Delay of 1 second (1000 milliseconds)
 });
