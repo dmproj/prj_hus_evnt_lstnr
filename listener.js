@@ -6,10 +6,11 @@ const input2 = document.querySelector('#input2');
 let timeoutId; 
 
 // Add event listener to input elements
-input1.addEventListener('input', () => {
+input1.addEventListener('input', (event) => {
+  console.log(timeoutId)
   clearTimeout(timeoutId);
   timeoutId = setTimeout(() => {
-    sendFetchRequest();
+    sendFetchRequest(event);
   }, 1000); // Delay of 1 second (1000 milliseconds)
 });
 
@@ -21,8 +22,9 @@ input1.addEventListener('input', () => {
 // });
 
 // Function to send fetch request with input values
-function sendFetchRequest() {
-  const value1 = input1.value;
+function sendFetchRequest(event) {
+  console.log(event.target)
+  const value1 = event.target.value;
   // const value2 = input2.value;
   
   // Send fetch request with input values
